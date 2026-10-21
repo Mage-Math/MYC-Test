@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Practice Exam: Fractions, Ratios, Proportion & Core Grade 8 Skills</title>
+  <title>Grade 8 Speed Practice Assessment (40-Min Timed Exam)</title>
   <style>
     :root {
       --primary-color: #2563eb;
@@ -14,7 +14,9 @@
       --border-color: #cbd5e1;
       --accent-color: #f1f5f9;
       --toolbar-bg: #e2e8f0;
-      --section-header-bg: #eff6ff;
+      --timer-warning: #ef4444;
+      --success-color: #16a34a;
+      --success-hover: #15803d;
     }
 
     * {
@@ -53,17 +55,34 @@
     }
 
     .header h1 {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       color: var(--primary-color);
     }
 
-    .meta-info {
-      font-size: 0.9rem;
-      color: #475569;
-      font-weight: 600;
-      background: var(--accent-color);
-      padding: 6px 12px;
-      border-radius: 6px;
+    .timer-badge {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e293b;
+      background: #e0f2fe;
+      border: 1px solid #7dd3fc;
+      padding: 8px 16px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .timer-badge.warning {
+      background: #fee2e2;
+      border-color: #fca5a5;
+      color: var(--timer-warning);
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
     }
 
     .progress-bar-container {
@@ -77,7 +96,7 @@
 
     .progress-bar {
       height: 100%;
-      width: 10%;
+      width: 6.66%;
       background-color: var(--primary-color);
       transition: width 0.3s ease;
     }
@@ -156,7 +175,7 @@
 
     .answer-textarea {
       width: 100%;
-      min-height: 90px;
+      min-height: 85px;
       padding: 12px;
       border: 1px solid var(--border-color);
       border-bottom-left-radius: 6px;
@@ -208,6 +227,19 @@
       background-color: var(--primary-hover);
     }
 
+    .btn-download {
+      background-color: var(--success-color);
+      color: white;
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-download:hover {
+      background-color: var(--success-hover);
+    }
+
     #results {
       margin-top: 10px;
       padding: 24px;
@@ -239,10 +271,12 @@
 <div class="container">
   <div class="header">
     <div>
-      <h1>Grade 8 Mathematics Practice Assessment</h1>
-      <p style="color: #64748b; font-size: 0.9rem; margin-top: 4px;">Fractions, Ratios, Proportions, Algebra & Basic Skills</p>
+      <h1>Grade 8 Speed Practice Assessment</h1>
+      <p style="color: #64748b; font-size: 0.88rem; margin-top: 4px;" id="questionIndicator">Question 1 of 15</p>
     </div>
-    <div class="meta-info" id="questionIndicator">Question 1 of 10</div>
+    <div class="timer-badge" id="timerBadge">
+      ⏱️ <span id="timeDisplay">40:00</span>
+    </div>
   </div>
 
   <div class="progress-bar-container">
@@ -254,50 +288,44 @@
     <!-- Q1 -->
     <div class="question-card active" id="card-1">
       <div class="question-title">
-        <span>Question 1: Fraction Operations</span>
+        <span>Question 1: Fraction Multiplication & Division</span>
         <span class="marks">[4 Marks]</span>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">a) A container holds <sup>5</sup>/<sub>6</sub> of a litre of water. A chemist uses <sup>3</sup>/<sub>5</sub> of this amount for a mixture. How much water is used? Express your answer in simplest fraction form. [2 Marks]</div>
+        <div class="sub-question-title">a) A container holds <sup>5</sup>/<sub>6</sub> of a litre of liquid. A experiment uses <sup>3</sup>/<sub>5</sub> of this amount. How much liquid is used? Express your fraction in simplest form. [2 Marks]</div>
         <div class="math-toolbar">
           <button type="button" class="math-btn" onclick="insertSymbol('q1_a', ' × ')">×</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q1_a', ' ÷ ')">÷</button>
           <button type="button" class="math-btn" onclick="insertSymbol('q1_a', '(a/b)')">a/b</button>
           <button type="button" class="math-btn" onclick="insertSymbol('q1_a', ' = ')">=</button>
         </div>
-        <textarea id="q1_a" class="answer-textarea" placeholder="Type working steps for part (a)..."></textarea>
+        <textarea id="q1_a" class="answer-textarea" placeholder="Working for part a..."></textarea>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">b) A lab has <sup>9</sup>/<sub>10</sub> of a litre of solution. Each test vial requires <sup>3</sup>/<sub>20</sub> of a litre. How many vials can be completely filled? [2 Marks]</div>
+        <div class="sub-question-title">b) A lab has <sup>9</sup>/<sub>10</sub> of a litre of reagent. Each vial requires <sup>3</sup>/<sub>20</sub> of a litre. How many vials can be filled? [2 Marks]</div>
         <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q1_b', ' × ')">×</button>
           <button type="button" class="math-btn" onclick="insertSymbol('q1_b', ' ÷ ')">÷</button>
           <button type="button" class="math-btn" onclick="insertSymbol('q1_b', '(a/b)')">a/b</button>
           <button type="button" class="math-btn" onclick="insertSymbol('q1_b', ' = ')">=</button>
         </div>
-        <textarea id="q1_b" class="answer-textarea" placeholder="Type working steps for part (b)..."></textarea>
+        <textarea id="q1_b" class="answer-textarea" placeholder="Working for part b..."></textarea>
       </div>
     </div>
 
     <!-- Q2 -->
     <div class="question-card" id="card-2">
       <div class="question-title">
-        <span>Question 2: Basic Fraction Arithmetic</span>
+        <span>Question 2: Fraction Addition & Subtraction</span>
         <span class="marks">[4 Marks]</span>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">a) Calculate: <sup>2</sup>/<sub>5</sub> + <sup>1</sup>/<sub>3</sub>. Give your answer in simplest form. [2 Marks]</div>
+        <div class="sub-question-title">a) Calculate: <sup>2</sup>/<sub>5</sub> + <sup>1</sup>/<sub>3</sub>. [2 Marks]</div>
         <div class="math-toolbar">
           <button type="button" class="math-btn" onclick="insertSymbol('q2_a', ' + ')">+</button>
           <button type="button" class="math-btn" onclick="insertSymbol('q2_a', '(a/b)')">a/b</button>
           <button type="button" class="math-btn" onclick="insertSymbol('q2_a', ' = ')">=</button>
         </div>
-        <textarea id="q2_a" class="answer-textarea" placeholder="Show working for finding a common denominator..."></textarea>
+        <textarea id="q2_a" class="answer-textarea" placeholder="Working for part a..."></textarea>
       </div>
-
       <div class="sub-question-block">
         <div class="sub-question-title">b) Calculate: <sup>7</sup>/<sub>8</sub> - <sup>3</sup>/<sub>4</sub>. [2 Marks]</div>
         <div class="math-toolbar">
@@ -305,252 +333,253 @@
           <button type="button" class="math-btn" onclick="insertSymbol('q2_b', '(a/b)')">a/b</button>
           <button type="button" class="math-btn" onclick="insertSymbol('q2_b', ' = ')">=</button>
         </div>
-        <textarea id="q2_b" class="answer-textarea" placeholder="Show working..."></textarea>
+        <textarea id="q2_b" class="answer-textarea" placeholder="Working for part b..."></textarea>
       </div>
     </div>
 
     <!-- Q3 -->
     <div class="question-card" id="card-3">
       <div class="question-title">
-        <span>Question 3: Ratio Sharing</span>
+        <span>Question 3: Mixed Fraction Division</span>
         <span class="marks">[3 Marks]</span>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">A sanctuary cares for 72 rescue animals consisting of birds and mammals in the ratio 4 : 5.</div>
-      </div>
-
-      <div class="sub-question-block">
-        <div class="sub-question-title">a) Calculate how many birds and how many mammals are in the sanctuary. [2 Marks]</div>
+        <div class="sub-question-title">Work out 2 <sup>1</sup>/<sub>4</sub> ÷ <sup>3</sup>/<sub>8</sub>. Show all working steps and state your final answer as a whole number or mixed fraction.</div>
         <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q3_a', ' × ')">×</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q3_a', ' ÷ ')">÷</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q3_a', ' : ')">:</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q3_a', ' = ')">=</button>
+          <button type="button" class="math-btn" onclick="insertSymbol('q3', ' × ')">×</button>
+          <button type="button" class="math-btn" onclick="insertSymbol('q3', ' ÷ ')">÷</button>
+          <button type="button" class="math-btn" onclick="insertSymbol('q3', '(a/b)')">a/b</button>
+          <button type="button" class="math-btn" onclick="insertSymbol('q3', ' = ')">=</button>
         </div>
-        <textarea id="q3_a" class="answer-textarea" placeholder="Show working for individual counts..."></textarea>
-      </div>
-
-      <div class="sub-question-block">
-        <div class="sub-question-title">b) How many more mammals than birds are there? [1 Mark]</div>
-        <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q3_b', ' - ')">-</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q3_b', ' = ')">=</button>
-        </div>
-        <textarea id="q3_b" class="answer-textarea" placeholder="Show working for the difference..."></textarea>
+        <textarea id="q3" class="answer-textarea" placeholder="Show improper fraction conversion and division..."></textarea>
       </div>
     </div>
 
     <!-- Q4 -->
     <div class="question-card" id="card-4">
       <div class="question-title">
-        <span>Question 4: Direct Proportion Formula</span>
+        <span>Question 4: Ratio Sharing</span>
         <span class="marks">[3 Marks]</span>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">The mass of solar panels (M kg) installed is directly proportional to the total electrical power generated (P kW).<br>[Panels Mass (M): 30 kg → Power (P): 120 kW | Panels Mass (M): 50 kg → Power (P): 200 kW]</div>
+        <div class="sub-question-title">A sanctuary cares for 72 rescue animals consisting of birds and mammals in the ratio 4 : 5.</div>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">a) Calculate the constant of proportionality, k, where P = kM. [1 Mark]</div>
+        <div class="sub-question-title">a) Calculate how many birds and how many mammals are in the sanctuary. [2 Marks]</div>
         <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q4_a', ' ÷ ')">÷</button>
+          <button type="button" class="math-btn" onclick="insertSymbol('q4_a', ' : ')">:</button>
           <button type="button" class="math-btn" onclick="insertSymbol('q4_a', ' = ')">=</button>
         </div>
-        <textarea id="q4_a" class="answer-textarea" placeholder="Show working for k..."></textarea>
+        <textarea id="q4_a" class="answer-textarea" placeholder="Working for part a..."></textarea>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">b) Write the formula connecting P and M. [1 Mark]</div>
+        <div class="sub-question-title">b) How many more mammals than birds are there? [1 Mark]</div>
         <div class="math-toolbar">
+          <button type="button" class="math-btn" onclick="insertSymbol('q4_b', ' - ')">-</button>
           <button type="button" class="math-btn" onclick="insertSymbol('q4_b', ' = ')">=</button>
         </div>
-        <textarea id="q4_b" class="answer-textarea" placeholder="Write the formula..."></textarea>
-      </div>
-
-      <div class="sub-question-block">
-        <div class="sub-question-title">c) How much power is generated if 85 kg of solar panels are installed? [1 Mark]</div>
-        <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q4_c', ' × ')">×</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q4_c', ' = ')">=</button>
-        </div>
-        <textarea id="q4_c" class="answer-textarea" placeholder="Show calculation for 85 kg..."></textarea>
+        <textarea id="q4_b" class="answer-textarea" placeholder="Working for part b..."></textarea>
       </div>
     </div>
 
     <!-- Q5 -->
     <div class="question-card" id="card-5">
       <div class="question-title">
-        <span>Question 5: Mixed Fraction Division</span>
+        <span>Question 5: Advanced Ratio Difference</span>
         <span class="marks">[3 Marks]</span>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">Work out 2 <sup>1</sup>/<sub>4</sub> ÷ <sup>3</sup>/<sub>8</sub>. Show all working steps and state your final answer as a whole number or mixed fraction.</div>
+        <div class="sub-question-title">Clara and David share profit in the ratio 3 : 7. If David receives 120 more than Clara, calculate the total profit shared.</div>
         <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q5', ' × ')">×</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q5', ' ÷ ')">÷</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q5', '(a/b)')">a/b</button>
+          <button type="button" class="math-btn" onclick="insertSymbol('q5', ' : ')">:</button>
           <button type="button" class="math-btn" onclick="insertSymbol('q5', ' = ')">=</button>
         </div>
-        <textarea id="q5" class="answer-textarea" placeholder="Type improper fraction conversion and division working..."></textarea>
+        <textarea id="q5" class="answer-textarea" placeholder="Calculate part value and total profit..."></textarea>
       </div>
     </div>
 
     <!-- Q6 -->
     <div class="question-card" id="card-6">
       <div class="question-title">
-        <span>Question 6: Advanced Ratio Problem</span>
-        <span class="marks">[3 Marks]</span>
+        <span>Question 6: Three-Part Ratio Simplification</span>
+        <span class="marks">[2 Marks]</span>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">Clara and David share profit from a project in the ratio 3 : 7. If David receives 120 more than Clara, calculate the total amount of profit shared.</div>
+        <div class="sub-question-title">Simplify the ratio 18 : 27 : 45 fully to its simplest form.</div>
         <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q6', ' × ')">×</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q6', ' ÷ ')">÷</button>
           <button type="button" class="math-btn" onclick="insertSymbol('q6', ' : ')">:</button>
           <button type="button" class="math-btn" onclick="insertSymbol('q6', ' = ')">=</button>
         </div>
-        <textarea id="q6" class="answer-textarea" placeholder="Calculate difference in parts, value per part, and total profit..."></textarea>
+        <textarea id="q6" class="answer-textarea" placeholder="Show common factor division..."></textarea>
       </div>
     </div>
 
     <!-- Q7 -->
     <div class="question-card" id="card-7">
       <div class="question-title">
-        <span>Question 7: Percentages & Conversions</span>
-        <span class="marks">[4 Marks]</span>
+        <span>Question 7: Direct Proportion Formula</span>
+        <span class="marks">[3 Marks]</span>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">a) Convert <sup>3</sup>/<sub>5</sub> into a percentage. [1 Mark]</div>
-        <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q7_a', ' × ')">×</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q7_a', '%')">%</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q7_a', ' = ')">=</button>
-        </div>
-        <textarea id="q7_a" class="answer-textarea" placeholder="Show working..."></textarea>
+        <div class="sub-question-title">Mass M kg of panels is directly proportional to power P kW (30 kg → 120 kW).</div>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">b) Calculate 15% of 160. [1 Mark]</div>
-        <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q7_b', ' × ')">×</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q7_b', ' ÷ ')">÷</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q7_b', ' = ')">=</button>
-        </div>
-        <textarea id="q7_b" class="answer-textarea" placeholder="Show working..."></textarea>
+        <div class="sub-question-title">a) Find constant k in P = kM. [1 Mark]</div>
+        <textarea id="q7_a" class="answer-textarea" placeholder="Working..."></textarea>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">c) A coat costs 80. Its price is reduced by 20% in a sale. Calculate the new sale price. [2 Marks]</div>
-        <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q7_c', ' - ')">-</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q7_c', ' × ')">×</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q7_c', ' = ')">=</button>
-        </div>
-        <textarea id="q7_c" class="answer-textarea" placeholder="Calculate discount amount and final price..."></textarea>
+        <div class="sub-question-title">b) Write formula connecting P and M. [1 Mark]</div>
+        <textarea id="q7_b" class="answer-textarea" placeholder="Formula..."></textarea>
+      </div>
+      <div class="sub-question-block">
+        <div class="sub-question-title">c) Find power for 85 kg of panels. [1 Mark]</div>
+        <textarea id="q7_c" class="answer-textarea" placeholder="Working..."></textarea>
       </div>
     </div>
 
     <!-- Q8 -->
     <div class="question-card" id="card-8">
       <div class="question-title">
-        <span>Question 8: Basic Linear Equations</span>
+        <span>Question 8: Non-Linear Direct Proportion</span>
         <span class="marks">[4 Marks]</span>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">a) Solve for x: 3x - 5 = 16 [2 Marks]</div>
+        <div class="sub-question-title">Variable Y is directly proportional to square of x (Y ∝ x²). When x = 4, Y = 80. Find Y when x = 6.</div>
         <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q8_a', ' + ')">+</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q8_a', ' ÷ ')">÷</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q8_a', ' = ')">=</button>
+          <button type="button" class="math-btn" onclick="insertSymbol('q8', '²')">x²</button>
+          <button type="button" class="math-btn" onclick="insertSymbol('q8', '∝')">∝</button>
+          <button type="button" class="math-btn" onclick="insertSymbol('q8', ' = ')">=</button>
         </div>
-        <textarea id="q8_a" class="answer-textarea" placeholder="Show step-by-step working..."></textarea>
-      </div>
-
-      <div class="sub-question-block">
-        <div class="sub-question-title">b) Solve for y: 2(y + 4) = 18 [2 Marks]</div>
-        <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q8_b', ' ÷ ')">÷</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q8_b', ' - ')">-</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q8_b', ' = ')">=</button>
-        </div>
-        <textarea id="q8_b" class="answer-textarea" placeholder="Show expansion/division steps..."></textarea>
+        <textarea id="q8" class="answer-textarea" placeholder="Find k, write formula, solve for Y..."></textarea>
       </div>
     </div>
 
     <!-- Q9 -->
     <div class="question-card" id="card-9">
       <div class="question-title">
-        <span>Question 9: Non-Linear Direct Proportion</span>
+        <span>Question 9: Percentages & Conversions</span>
         <span class="marks">[4 Marks]</span>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">Variable Y is directly proportional to the square of x (Y ∝ x²). When x = 4, Y = 80. Find the value of Y when x = 6.</div>
-        <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q9', ' × ')">×</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q9', ' ÷ ')">÷</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q9', ' = ')">=</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q9', '²')">x²</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q9', '∝')">∝</button>
-        </div>
-        <textarea id="q9" class="answer-textarea" placeholder="Find k, state the formula, and solve for Y..."></textarea>
+        <div class="sub-question-title">a) Convert <sup>3</sup>/<sub>5</sub> to percentage. [1 Mark]</div>
+        <textarea id="q9_a" class="answer-textarea" placeholder="Working..."></textarea>
+      </div>
+      <div class="sub-question-block">
+        <div class="sub-question-title">b) Calculate 15% of 160. [1 Mark]</div>
+        <textarea id="q9_b" class="answer-textarea" placeholder="Working..."></textarea>
+      </div>
+      <div class="sub-question-block">
+        <div class="sub-question-title">c) Item priced at 80 is reduced by 20%. Calculate new price. [2 Marks]</div>
+        <textarea id="q9_c" class="answer-textarea" placeholder="Working..."></textarea>
       </div>
     </div>
 
     <!-- Q10 -->
     <div class="question-card" id="card-10">
       <div class="question-title">
-        <span>Question 10: Core Algebra, Arithmetic & Geometry</span>
+        <span>Question 10: Linear Equations</span>
+        <span class="marks">[4 Marks]</span>
+      </div>
+      <div class="sub-question-block">
+        <div class="sub-question-title">a) Solve for x: 3x - 5 = 16 [2 Marks]</div>
+        <textarea id="q10_a" class="answer-textarea" placeholder="Working..."></textarea>
+      </div>
+      <div class="sub-question-block">
+        <div class="sub-question-title">b) Solve for y: 2(y + 4) = 18 [2 Marks]</div>
+        <textarea id="q10_b" class="answer-textarea" placeholder="Working..."></textarea>
+      </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="question-card" id="card-11">
+      <div class="question-title">
+        <span>Question 11: Speed, Distance & Time</span>
+        <span class="marks">[3 Marks]</span>
+      </div>
+      <div class="sub-question-block">
+        <div class="sub-question-title">A train travels 180 km at a constant speed of 60 km/h. How many hours does the journey take?</div>
+        <div class="math-toolbar">
+          <button type="button" class="math-btn" onclick="insertSymbol('q11', ' ÷ ')">÷</button>
+          <button type="button" class="math-btn" onclick="insertSymbol('q11', ' = ')">=</button>
+        </div>
+        <textarea id="q11" class="answer-textarea" placeholder="Use Time = Distance / Speed..."></textarea>
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="question-card" id="card-12">
+      <div class="question-title">
+        <span>Question 12: Exponents & Order of Operations (BIDMAS)</span>
+        <span class="marks">[4 Marks]</span>
+      </div>
+      <div class="sub-question-block">
+        <div class="sub-question-title">a) Simplify: 2³ + (5 × 4) [2 Marks]</div>
+        <textarea id="q12_a" class="answer-textarea" placeholder="Working..."></textarea>
+      </div>
+      <div class="sub-question-block">
+        <div class="sub-question-title">b) Simplify: (12 - 4)² ÷ 16 [2 Marks]</div>
+        <textarea id="q12_b" class="answer-textarea" placeholder="Working..."></textarea>
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="question-card" id="card-13">
+      <div class="question-title">
+        <span>Question 13: Perimeter & Circumference</span>
+        <span class="marks">[3 Marks]</span>
+      </div>
+      <div class="sub-question-block">
+        <div class="sub-question-title">A circle has a radius of 7 cm. Calculate its circumference using π ≈ <sup>22</sup>/<sub>7</sub>. (Formula: C = 2πr)</div>
+        <div class="math-toolbar">
+          <button type="button" class="math-btn" onclick="insertSymbol('q13', ' × ')">×</button>
+          <button type="button" class="math-btn" onclick="insertSymbol('q13', ' = ')">=</button>
+        </div>
+        <textarea id="q13" class="answer-textarea" placeholder="Show substitution into C = 2 * (22/7) * r..."></textarea>
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="question-card" id="card-14">
+      <div class="question-title">
+        <span>Question 14: Direct Proportion Recipe Scaling</span>
+        <span class="marks">[3 Marks]</span>
+      </div>
+      <div class="sub-question-block">
+        <div class="sub-question-title">A recipe for 6 pancakes requires 150g of flour. How many grams of flour are required to make 15 pancakes?</div>
+        <div class="math-toolbar">
+          <button type="button" class="math-btn" onclick="insertSymbol('q14', ' ÷ ')">÷</button>
+          <button type="button" class="math-btn" onclick="insertSymbol('q14', ' × ')">×</button>
+          <button type="button" class="math-btn" onclick="insertSymbol('q14', ' = ')">=</button>
+        </div>
+        <textarea id="q14" class="answer-textarea" placeholder="Find flour per pancake, then multiply by 15..."></textarea>
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="question-card" id="card-15">
+      <div class="question-title">
+        <span>Question 15: Core Skills Blitz</span>
         <span class="marks">[5 Marks]</span>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">a) Expand and simplify: 4(2x - 3) [1 Mark]</div>
-        <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q10_a', ' = ')">=</button>
-        </div>
-        <textarea id="q10_a" class="answer-textarea" placeholder="Working for part a..."></textarea>
+        <div class="sub-question-title">a) Expand: 4(2x - 3) [1 Mark]</div>
+        <textarea id="q15_a" class="answer-textarea" placeholder="Answer..."></textarea>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">b) Two angles on a straight line are 4x and 40°. Find the value of x. [1 Mark]</div>
-        <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q10_b', ' = ')">=</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q10_b', '°')">°</button>
-        </div>
-        <textarea id="q10_b" class="answer-textarea" placeholder="Working for part b..."></textarea>
+        <div class="sub-question-title">b) Two angles on straight line: 4x and 40°. Find x. [1 Mark]</div>
+        <textarea id="q15_b" class="answer-textarea" placeholder="Answer..."></textarea>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">c) Simplify the ratio 32 : 48 to its simplest form. [1 Mark]</div>
-        <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q10_c', ' : ')">:</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q10_c', ' = ')">=</button>
-        </div>
-        <textarea id="q10_c" class="answer-textarea" placeholder="Working for part c..."></textarea>
+        <div class="sub-question-title">c) Simplify ratio 32 : 48 fully. [1 Mark]</div>
+        <textarea id="q15_c" class="answer-textarea" placeholder="Answer..."></textarea>
       </div>
-
       <div class="sub-question-block">
         <div class="sub-question-title">d) Calculate: -15 + 9 [1 Mark]</div>
-        <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q10_d', ' = ')">=</button>
-        </div>
-        <textarea id="q10_d" class="answer-textarea" placeholder="Working for part d..."></textarea>
+        <textarea id="q15_d" class="answer-textarea" placeholder="Answer..."></textarea>
       </div>
-
       <div class="sub-question-block">
-        <div class="sub-question-title">e) A rectangle has a length of 14 cm and a width of 6 cm. Calculate its area. [1 Mark]</div>
-        <div class="math-toolbar">
-          <button type="button" class="math-btn" onclick="insertSymbol('q10_e', ' × ')">×</button>
-          <button type="button" class="math-btn" onclick="insertSymbol('q10_e', ' = ')">=</button>
-        </div>
-        <textarea id="q10_e" class="answer-textarea" placeholder="Working for part e..."></textarea>
+        <div class="sub-question-title">e) Rectangle length 14 cm, width 6 cm. Find area. [1 Mark]</div>
+        <textarea id="q15_e" class="answer-textarea" placeholder="Answer..."></textarea>
       </div>
     </div>
 
@@ -562,8 +591,14 @@
   </form>
 
   <div id="results">
-    <h2>Practice Assessment Completed!</h2>
-    <p>Review your typed responses below along with the worked solutions:</p>
+    <h2>40-Minute Practice Completed!</h2>
+    <p id="timeSummaryNote"></p>
+    
+    <button type="button" class="btn btn-download" onclick="downloadResults()">
+      📥 Download Results Report (.txt)
+    </button>
+
+    <p style="margin-top: 16px;">Review your typed responses below along with the model solutions:</p>
 
     <div id="reviewContainer"></div>
   </div>
@@ -571,7 +606,33 @@
 
 <script>
   let currentQuestion = 1;
-  const totalQuestions = 10;
+  const totalQuestions = 15;
+  let totalTimeSeconds = 40 * 60; // 40 minutes = 2400 seconds
+  let timerInterval = null;
+
+  function startTimer() {
+    timerInterval = setInterval(() => {
+      totalTimeSeconds--;
+
+      const minutes = Math.floor(totalTimeSeconds / 60);
+      const seconds = totalTimeSeconds % 60;
+
+      const formattedMinutes = String(minutes).padStart(2, '0');
+      const formattedSeconds = String(seconds).padStart(2, '0');
+
+      document.getElementById('timeDisplay').innerText = `${formattedMinutes}:${formattedSeconds}`;
+
+      if (totalTimeSeconds <= 300) { // last 5 minutes warning
+        document.getElementById('timerBadge').classList.add('warning');
+      }
+
+      if (totalTimeSeconds <= 0) {
+        clearInterval(timerInterval);
+        alert("Time is up! Your assessment will now be submitted automatically.");
+        submitAssessment(true);
+      }
+    }, 1000);
+  }
 
   function updatePage() {
     for (let i = 1; i <= totalQuestions; i++) {
@@ -619,26 +680,32 @@
   const modelSolutions = {
     q1_a: "(5/6) × (3/5) = 15/30 = 1/2 litre.",
     q1_b: "(9/10) ÷ (3/20) = (9/10) × (20/3) = 180 / 30 = 6 vials.",
-    q2_a: "Common denominator is 15: 6/15 + 5/15 = 11/15.",
-    q2_b: "Common denominator is 8: 7/8 - 6/8 = 1/8.",
-    q3_a: "Total parts = 4 + 5 = 9 parts. 1 part = 72 / 9 = 8 animals. Birds = 4 × 8 = 32; Mammals = 5 × 8 = 40.",
-    q3_b: "Difference = 40 - 32 = 8 more mammals.",
-    q4_a: "k = P / M = 120 / 30 = 4.",
-    q4_b: "Formula: P = 4M.",
-    q4_c: "P = 4 × 85 = 340 kW.",
-    q5: "2 1/4 = 9/4. (9/4) ÷ (3/8) = (9/4) × (8/3) = 72 / 12 = 6.",
-    q6: "Difference in parts = 7 - 3 = 4 parts. 4 parts = 120 => 1 part = 30. Total parts = 3 + 7 = 10 parts. Total profit = 10 × 30 = 300.",
-    q7_a: "(3/5) × 100 = 60%.",
-    q7_b: "0.15 × 160 = 24.",
-    q7_c: "20% of 80 = 16. Sale price = 80 - 16 = 64.",
-    q8_a: "3x = 16 + 5 => 3x = 21 => x = 7.",
-    q8_b: "2y + 8 = 18 => 2y = 10 => y = 5.",
-    q9: "Y = kx² => 80 = k × (4²) => 80 = 16k => k = 5. Formula: Y = 5x². For x = 6: Y = 5 × (6²) = 5 × 36 = 180.",
-    q10_a: "4(2x - 3) = 8x - 12",
-    q10_b: "4x + 40 = 180 => 4x = 140 => x = 35°",
-    q10_c: "32 : 48 = 2 : 3 (dividing by 16)",
-    q10_d: "-15 + 9 = -6",
-    q10_e: "Area = 14 cm × 6 cm = 84 cm²"
+    q2_a: "Common denominator 15: 6/15 + 5/15 = 11/15.",
+    q2_b: "Common denominator 8: 7/8 - 6/8 = 1/8.",
+    q3: "2 1/4 = 9/4. (9/4) ÷ (3/8) = (9/4) × (8/3) = 72 / 12 = 6.",
+    q4_a: "Total parts = 4 + 5 = 9. 1 part = 72 / 9 = 8. Birds = 32; Mammals = 40.",
+    q4_b: "40 - 32 = 8 more mammals.",
+    q5: "7 - 3 = 4 parts. 4 parts = 120 => 1 part = 30. Total parts = 10. Total profit = 10 × 30 = 300.",
+    q6: "Divide all by 9: 18÷9 : 27÷9 : 45÷9 = 2 : 3 : 5.",
+    q7_a: "k = P / M = 120 / 30 = 4.",
+    q7_b: "P = 4M.",
+    q7_c: "P = 4 × 85 = 340 kW.",
+    q8: "Y = kx² => 80 = 16k => k = 5. Formula: Y = 5x². For x = 6: Y = 5 × 36 = 180.",
+    q9_a: "(3/5) × 100 = 60%.",
+    q9_b: "0.15 × 160 = 24.",
+    q9_c: "Discount = 20% of 80 = 16. New price = 80 - 16 = 64.",
+    q10_a: "3x = 16 + 5 => 3x = 21 => x = 7.",
+    q10_b: "2y + 8 = 18 => 2y = 10 => y = 5.",
+    q11: "Time = Distance / Speed = 180 / 60 = 3 hours.",
+    q12_a: "2³ = 8. 5 × 4 = 20. 8 + 20 = 28.",
+    q12_b: "(12 - 4) = 8. 8² = 64. 64 ÷ 16 = 4.",
+    q13: "C = 2 × (22/7) × 7 = 2 × 22 = 44 cm.",
+    q14: "Flour per pancake = 150 ÷ 6 = 25g. For 15 pancakes = 15 × 25g = 375g.",
+    q15_a: "4(2x - 3) = 8x - 12",
+    q15_b: "4x + 40 = 180 => 4x = 140 => x = 35°",
+    q15_c: "32 : 48 = 2 : 3 (divided by 16)",
+    q15_d: "-15 + 9 = -6",
+    q15_e: "Area = 14 cm × 6 cm = 84 cm²"
   };
 
   const subQuestionLabels = {
@@ -646,29 +713,45 @@
     q1_b: "Question 1 (b)",
     q2_a: "Question 2 (a)",
     q2_b: "Question 2 (b)",
-    q3_a: "Question 3 (a)",
-    q3_b: "Question 3 (b)",
+    q3: "Question 3",
     q4_a: "Question 4 (a)",
     q4_b: "Question 4 (b)",
-    q4_c: "Question 4 (c)",
     q5: "Question 5",
     q6: "Question 6",
     q7_a: "Question 7 (a)",
     q7_b: "Question 7 (b)",
     q7_c: "Question 7 (c)",
-    q8_a: "Question 8 (a)",
-    q8_b: "Question 8 (b)",
-    q9: "Question 9",
+    q8: "Question 8",
+    q9_a: "Question 9 (a)",
+    q9_b: "Question 9 (b)",
+    q9_c: "Question 9 (c)",
     q10_a: "Question 10 (a)",
     q10_b: "Question 10 (b)",
-    q10_c: "Question 10 (c)",
-    q10_d: "Question 10 (d)",
-    q10_e: "Question 10 (e)"
+    q11: "Question 11",
+    q12_a: "Question 12 (a)",
+    q12_b: "Question 12 (b)",
+    q13: "Question 13",
+    q14: "Question 14",
+    q15_a: "Question 15 (a)",
+    q15_b: "Question 15 (b)",
+    q15_c: "Question 15 (c)",
+    q15_d: "Question 15 (d)",
+    q15_e: "Question 15 (e)"
   };
 
-  function submitAssessment() {
+  function submitAssessment(autoSubmit = false) {
+    clearInterval(timerInterval);
+
     document.getElementById('quizForm').style.display = 'none';
     document.querySelector('.progress-bar-container').style.display = 'none';
+
+    const timeSpentSeconds = (40 * 60) - Math.max(0, totalTimeSeconds);
+    const spentMins = Math.floor(timeSpentSeconds / 60);
+    const spentSecs = timeSpentSeconds % 60;
+
+    document.getElementById('timeSummaryNote').innerText = autoSubmit 
+      ? "Time expired after 40 minutes. Here is your completed work:"
+      : `Completed in ${spentMins} minutes and ${spentSecs} seconds out of the 40-minute limit.`;
 
     const reviewContainer = document.getElementById('reviewContainer');
     reviewContainer.innerHTML = '';
@@ -690,6 +773,42 @@
     const resultsDiv = document.getElementById('results');
     resultsDiv.style.display = 'block';
   }
+
+  function downloadResults() {
+    const timeSummary = document.getElementById('timeSummaryNote').innerText;
+    let reportContent = `==================================================\n`;
+    reportContent += `GRADE 8 MATHEMATICS PRACTICE ASSESSMENT RESULTS REPORT\n`;
+    reportContent += `==================================================\n\n`;
+    reportContent += `Time Summary: ${timeSummary}\n\n`;
+    reportContent += `--------------------------------------------------\n\n`;
+
+    for (let key in modelSolutions) {
+      const textarea = document.getElementById(key);
+      const userAns = textarea && textarea.value.trim() ? textarea.value.trim() : 'No answer submitted.';
+      const solutionText = modelSolutions[key].replace(/<br>/g, '\n').replace(/<sup>/g, '').replace(/<\/sup>/g, '').replace(/<sub>/g, '').replace(/<\/sub>/g, '');
+      
+      reportContent += `${subQuestionLabels[key]}\n`;
+      reportContent += `Your Submission:\n${userAns}\n\n`;
+      reportContent += `Model Solution:\n${solutionText}\n`;
+      reportContent += `--------------------------------------------------\n\n`;
+    }
+
+    const blob = new Blob([reportContent], { type: 'text/plain;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = url;
+    downloadLink.download = 'Grade8_Math_Results_Report.txt';
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    URL.revokeObjectURL(url);
+  }
+
+  // Initialize Timer on Load
+  window.onload = function() {
+    startTimer();
+    updatePage();
+  };
 </script>
 
 </body>
