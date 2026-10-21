@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fractions, Ratio & Direct Proportion Test</title>
+  <title>40-Minute Math Assessment: Fractions, Ratios & Direct Proportion</title>
   <style>
     :root {
       --primary-color: #2563eb;
@@ -11,8 +11,9 @@
       --bg-color: #f8fafc;
       --card-bg: #ffffff;
       --text-color: #0f172a;
-      --border-color: #e2e8f0;
+      --border-color: #cbd5e1;
       --accent-color: #f1f5f9;
+      --toolbar-bg: #e2e8f0;
     }
 
     * {
@@ -25,24 +26,24 @@
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-      padding: 20px;
+      padding: 24px;
       display: flex;
       justify-content: center;
     }
 
     .container {
-      max-width: 800px;
+      max-width: 850px;
       width: 100%;
       background: var(--card-bg);
-      padding: 32px;
+      padding: 36px;
       border-radius: 12px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     .header {
       border-bottom: 2px solid var(--border-color);
-      padding-bottom: 16px;
-      margin-bottom: 24px;
+      padding-bottom: 18px;
+      margin-bottom: 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -51,60 +52,101 @@
     }
 
     .header h1 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: var(--primary-color);
     }
 
     .meta-info {
+      font-size: 0.95rem;
+      color: #475569;
+      font-weight: 600;
+      background: var(--accent-color);
+      padding: 8px 14px;
+      border-radius: 6px;
+    }
+
+    .instructions {
+      background-color: #eff6ff;
+      border-left: 4px solid var(--primary-color);
+      padding: 12px 16px;
+      margin-bottom: 24px;
       font-size: 0.9rem;
-      color: #64748b;
-      font-weight: 500;
+      color: #1e40af;
+      border-radius: 0 6px 6px 0;
     }
 
     .question-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
+      padding: 22px;
+      margin-bottom: 24px;
     }
 
     .question-title {
       font-weight: 600;
-      margin-bottom: 12px;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
       display: flex;
       justify-content: space-between;
+      align-items: baseline;
     }
 
     .marks {
       color: #64748b;
       font-size: 0.85rem;
-      font-weight: normal;
+      font-weight: 600;
+      white-space: nowrap;
     }
 
-    .options {
+    /* Math Toolbar Styling */
+    .math-toolbar {
       display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .option-label {
-      display: flex;
-      align-items: center;
-      padding: 10px 14px;
+      flex-wrap: wrap;
+      gap: 6px;
+      background-color: var(--toolbar-bg);
+      padding: 8px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
       border: 1px solid var(--border-color);
-      border-radius: 6px;
+      border-bottom: none;
+    }
+
+    .math-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.2s;
+      transition: all 0.15s ease;
+      color: #334155;
     }
 
-    .option-label:hover {
-      background-color: var(--accent-color);
+    .math-btn:hover {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
     }
 
-    .option-label input {
-      margin-right: 12px;
+    .answer-textarea {
+      width: 100%;
+      min-height: 110px;
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      line-height: 1.5;
+      resize: vertical;
+      outline: none;
+    }
+
+    .answer-textarea:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
     }
 
     .submit-btn {
@@ -113,11 +155,11 @@
       color: white;
       border: none;
       padding: 14px;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       border-radius: 8px;
       cursor: pointer;
-      margin-top: 20px;
+      margin-top: 10px;
       transition: background-color 0.2s;
     }
 
@@ -126,8 +168,8 @@
     }
 
     #results {
-      margin-top: 24px;
-      padding: 20px;
+      margin-top: 28px;
+      padding: 24px;
       background-color: #f0fdf4;
       border: 1px solid #bbf7d0;
       border-radius: 8px;
@@ -136,21 +178,18 @@
 
     #results h2 {
       color: #166534;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
-    .fraction {
-      display: inline-block;
-      vertical-align: middle;
-      text-align: center;
-      font-size: 0.9em;
+    .review-item {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #dcfce7;
+      font-size: 0.95rem;
     }
-    .fraction > span {
-      display: block;
-      padding: 0 2px;
-    }
-    .fraction span.fdn {
-      border-top: 1px solid black;
+
+    .review-item strong {
+      color: #14532d;
     }
   </style>
 </head>
@@ -160,148 +199,225 @@
   <div class="header">
     <div>
       <h1>Mathematics Assessment</h1>
-      <p style="color: #64748b; font-size: 0.9rem; margin-top: 4px;">Fractions, Ratios & Direct Proportion</p>
+      <p style="color: #64748b; font-size: 0.95rem; margin-top: 4px;">Fractions, Ratios, Sharing & Direct Proportion</p>
     </div>
-    <div class="meta-info">Time Allowed: 40 Mins | Total Marks: 20</div>
+    <div class="meta-info">Time: 40 Mins | Total Marks: 25</div>
+  </div>
+
+  <div class="instructions">
+    <strong>Instructions:</strong> Show all working out clearly for full marks. Use the mathematical symbol toolbar above each text box to easily insert mathematical operators and fraction templates into your response.
   </div>
 
   <form id="quizForm">
+
     <!-- Q1 -->
     <div class="question-card">
       <div class="question-title">
-        <span>1. Multiply: <sup>3</sup>/<sub>4</sub> × <sup>8</sup>/<sub>9</sub></span>
+        <span>1. Work out <sup>3</sup>/<sub>4</sub> × <sup>8</sup>/<sub>9</sub>. Give your answer as a fraction in its simplest form.</span>
         <span class="marks">[2 Marks]</span>
       </div>
-      <div class="options">
-        <label class="option-label"><input type="radio" name="q1" value="A"> <sup>24</sup>/<sub>36</sub></label>
-        <label class="option-label"><input type="radio" name="q1" value="B"> <sup>2</sup>/<sub>3</sub></label>
-        <label class="option-label"><input type="radio" name="q1" value="C"> <sup>27</sup>/<sub>32</sub></label>
-        <label class="option-label"><input type="radio" name="q1" value="D"> 1 <sup>1</sup>/<sub>3</sub></label>
+      <div class="math-toolbar" data-target="q1">
+        <button type="button" class="math-btn" onclick="insertSymbol('q1', ' × ')">×</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q1', ' ÷ ')">÷</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q1', '(a/b)')">a/b</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q1', ' = ')">=</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q1', ' : ')">:</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q1', '²')">x²</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q1', '√')">√</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q1', '∝')">∝</button>
       </div>
+      <textarea id="q1" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
     </div>
 
     <!-- Q2 -->
     <div class="question-card">
       <div class="question-title">
-        <span>2. Divide: <sup>5</sup>/<sub>6</sub> ÷ <sup>2</sup>/<sub>3</sub></span>
-        <span class="marks">[2 Marks]</span>
+        <span>2. Work out 1 <sup>2</sup>/<sub>3</sub> ÷ <sup>5</sup>/<sub>6</sub>. Show your working and state your answer as a whole number or mixed fraction.</span>
+        <span class="marks">[3 Marks]</span>
       </div>
-      <div class="options">
-        <label class="option-label"><input type="radio" name="q2" value="A"> 1 <sup>1</sup>/<sub>4</sub></label>
-        <label class="option-label"><input type="radio" name="q2" value="B"> <sup>5</sup>/<sub>9</sub></label>
-        <label class="option-label"><input type="radio" name="q2" value="C"> <sup>5</sup>/<sub>4</sub></label>
-        <label class="option-label"><input type="radio" name="q2" value="D"> <sup>10</sup>/<sub>18</sub></label>
+      <div class="math-toolbar" data-target="q2">
+        <button type="button" class="math-btn" onclick="insertSymbol('q2', ' × ')">×</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q2', ' ÷ ')">÷</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q2', '(a/b)')">a/b</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q2', ' = ')">=</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q2', ' : ')">:</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q2', '²')">x²</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q2', '√')">√</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q2', '∝')">∝</button>
       </div>
+      <textarea id="q2" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
     </div>
 
     <!-- Q3 -->
     <div class="question-card">
       <div class="question-title">
-        <span>3. Simplify the ratio 24 : 36 to its simplest form.</span>
-        <span class="marks">[1 Mark]</span>
+        <span>3. Simplify the ratio 42 : 56 : 70 fully.</span>
+        <span class="marks">[2 Marks]</span>
       </div>
-      <div class="options">
-        <label class="option-label"><input type="radio" name="q3" value="A"> 12 : 18</label>
-        <label class="option-label"><input type="radio" name="q3" value="B"> 4 : 6</label>
-        <label class="option-label"><input type="radio" name="q3" value="C"> 2 : 3</label>
-        <label class="option-label"><input type="radio" name="q3" value="D"> 3 : 2</label>
+      <div class="math-toolbar" data-target="q3">
+        <button type="button" class="math-btn" onclick="insertSymbol('q3', ' × ')">×</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q3', ' ÷ ')">÷</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q3', '(a/b)')">a/b</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q3', ' = ')">=</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q3', ' : ')">:</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q3', '²')">x²</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q3', '√')">√</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q3', '∝')">∝</button>
       </div>
+      <textarea id="q3" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
     </div>
 
     <!-- Q4 -->
     <div class="question-card">
       <div class="question-title">
-        <span>4. Share $150 in the ratio 2 : 3. What is the larger share?</span>
-        <span class="marks">[2 Marks]</span>
+        <span>4. Share $280 in the ratio 3 : 4 : 7. Calculate the value of each share.</span>
+        <span class="marks">[3 Marks]</span>
       </div>
-      <div class="options">
-        <label class="option-label"><input type="radio" name="q4" value="A"> $60</label>
-        <label class="option-label"><input type="radio" name="q4" value="B"> $75</label>
-        <label class="option-label"><input type="radio" name="q4" value="C"> $90</label>
-        <label class="option-label"><input type="radio" name="q4" value="D"> $100</label>
+      <div class="math-toolbar" data-target="q4">
+        <button type="button" class="math-btn" onclick="insertSymbol('q4', ' × ')">×</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q4', ' ÷ ')">÷</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q4', '(a/b)')">a/b</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q4', ' = ')">=</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q4', ' : ')">:</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q4', '²')">x²</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q4', '√')">√</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q4', '∝')">∝</button>
       </div>
+      <textarea id="q4" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
     </div>
 
     <!-- Q5 -->
     <div class="question-card">
       <div class="question-title">
-        <span>5. Three friends share $240 in the ratio 1 : 3 : 4. How much does the middle person get?</span>
-        <span class="marks">[2 Marks]</span>
+        <span>5. Alex and Ben share money in the ratio 2 : 5. If Ben receives $45 more than Alex, how much money was shared in total?</span>
+        <span class="marks">[3 Marks]</span>
       </div>
-      <div class="options">
-        <label class="option-label"><input type="radio" name="q5" value="A"> $30</label>
-        <label class="option-label"><input type="radio" name="q5" value="B"> $90</label>
-        <label class="option-label"><input type="radio" name="q5" value="C"> $120</label>
-        <label class="option-label"><input type="radio" name="q5" value="D"> $60</label>
+      <div class="math-toolbar" data-target="q5">
+        <button type="button" class="math-btn" onclick="insertSymbol('q5', ' × ')">×</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q5', ' ÷ ')">÷</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q5', '(a/b)')">a/b</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q5', ' = ')">=</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q5', ' : ')">:</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q5', '²')">x²</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q5', '√')">√</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q5', '∝')">∝</button>
       </div>
+      <textarea id="q5" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
     </div>
 
     <!-- Q6 -->
     <div class="question-card">
       <div class="question-title">
-        <span>6. $y$ is directly proportional to $x$. When $x = 4$, $y = 20$. Write the formula for $y$ in terms of $x$.</span>
-        <span class="marks">[2 Marks]</span>
+        <span>6. Quantity y is directly proportional to x. When x = 6, y = 42. Find the constant of proportionality k and write the formula linking y and x.</span>
+        <span class="marks">[3 Marks]</span>
       </div>
-      <div class="options">
-        <label class="option-label"><input type="radio" name="q6" value="A"> y = x + 16</label>
-        <label class="option-label"><input type="radio" name="q6" value="B"> y = 5x</label>
-        <label class="option-label"><input type="radio" name="q6" value="C"> y = 4x</label>
-        <label class="option-label"><input type="radio" name="q6" value="D"> y = 20x</label>
+      <div class="math-toolbar" data-target="q6">
+        <button type="button" class="math-btn" onclick="insertSymbol('q6', ' × ')">×</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q6', ' ÷ ')">÷</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q6', '(a/b)')">a/b</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q6', ' = ')">=</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q6', ' : ')">:</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q6', '²')">x²</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q6', '√')">√</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q6', '∝')">∝</button>
       </div>
+      <textarea id="q6" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
     </div>
 
     <!-- Q7 -->
     <div class="question-card">
       <div class="question-title">
-        <span>7. Given $y = 3x$ (direct proportion), find $y$ when $x = 8$.</span>
-        <span class="marks">[1 Mark]</span>
+        <span>7. Variable P is directly proportional to the square of r (P ∝ r²). When r = 3, P = 45. Find the value of P when r = 5.</span>
+        <span class="marks">[4 Marks]</span>
       </div>
-      <div class="options">
-        <label class="option-label"><input type="radio" name="q7" value="A"> 11</label>
-        <label class="option-label"><input type="radio" name="q7" value="B"> 24</label>
-        <label class="option-label"><input type="radio" name="q7" value="C"> 5</label>
-        <label class="option-label"><input type="radio" name="q7" value="D"> 18</label>
+      <div class="math-toolbar" data-target="q7">
+        <button type="button" class="math-btn" onclick="insertSymbol('q7', ' × ')">×</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q7', ' ÷ ')">÷</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q7', '(a/b)')">a/b</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q7', ' = ')">=</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q7', ' : ')">:</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q7', '²')">x²</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q7', '√')">√</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q7', '∝')">∝</button>
       </div>
+      <textarea id="q7" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
     </div>
 
-    <button type="button" class="submit-btn" onclick="gradeQuiz()">Submit Assessment</button>
+    <!-- Q8 -->
+    <div class="question-card">
+      <div class="question-title">
+        <span>8. A recipe for 8 biscuits requires 120g of flour and 60g of butter. Calculate how much flour and butter are needed to make 20 biscuits.</span>
+        <span class="marks">[3 Marks]</span>
+      </div>
+      <div class="math-toolbar" data-target="q8">
+        <button type="button" class="math-btn" onclick="insertSymbol('q8', ' × ')">×</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q8', ' ÷ ')">÷</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q8', '(a/b)')">a/b</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q8', ' = ')">=</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q8', ' : ')">:</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q8', '²')">x²</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q8', '√')">√</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q8', '∝')">∝</button>
+      </div>
+      <textarea id="q8" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
+    </div>
+
+    <button type="button" class="submit-btn" onclick="submitAssessment()">Submit Assessment for Review</button>
   </form>
 
   <div id="results">
-    <h2>Results</h2>
-    <p id="scoreText"></p>
+    <h2>Assessment Submitted!</h2>
+    <p>Your responses have been saved. Review your entries below alongside the target solutions:</p>
+
+    <div id="reviewContainer"></div>
   </div>
 </div>
 
 <script>
-  function gradeQuiz() {
-    const answers = {
-      q1: 'B',
-      q2: 'A',
-      q3: 'C',
-      q4: 'C',
-      q5: 'B',
-      q6: 'B',
-      q7: 'B'
-    };
+  // Function to insert mathematical symbols into the targeted textarea at the cursor position
+  function insertSymbol(textareaId, symbol) {
+    const textarea = document.getElementById(textareaId);
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const text = textarea.value;
 
-    let score = 0;
-    let totalQuestions = Object.keys(answers).length;
+    textarea.value = text.substring(0, start) + symbol + text.substring(end);
+    textarea.selectionStart = textarea.selectionEnd = start + symbol.length;
+    textarea.focus();
+  }
 
-    for (let key in answers) {
-      const selected = document.querySelector(`input[name="${key}"]:checked`);
-      if (selected && selected.value === answers[key]) {
-        score++;
-      }
+  // Model answers for displaying after submission
+  const modelSolutions = {
+    q1: "3/4 × 8/9 = (3 × 8) / (4 × 9) = 24 / 36 = 2/3",
+    q2: "1 2/3 = 5/3. (5/3) ÷ (5/6) = (5/3) × (6/5) = 30 / 15 = 2",
+    q3: "Divide each part by 14: 42 ÷ 14 = 3, 56 ÷ 14 = 4, 70 ÷ 14 = 5. Final ratio = 3 : 4 : 5",
+    q4: "Total parts = 3 + 4 + 7 = 14 parts. 1 part = $280 / 14 = $20. Shares: 3 × $20 = $60, 4 × $20 = $80, 7 × $20 = $140.",
+    q5: "Difference in parts = 5 - 2 = 3 parts. 3 parts = $45, so 1 part = $15. Total parts = 2 + 5 = 7 parts. Total money = 7 × $15 = $105.",
+    q6: "y = kx => 42 = k × 6 => k = 42 / 6 = 7. Formula: y = 7x.",
+    q7: "P = kr² => 45 = k × (3²) => 45 = 9k => k = 5. Formula: P = 5r². For r = 5: P = 5 × (5²) = 5 × 25 = 125.",
+    q8: "1 biscuit requires: 120g / 8 = 15g flour, 60g / 8 = 7.5g butter. For 20 biscuits: Flour = 20 × 15g = 300g; Butter = 20 × 7.5g = 150g."
+  };
+
+  function submitAssessment() {
+    const reviewContainer = document.getElementById('reviewContainer');
+    reviewContainer.innerHTML = '';
+
+    for (let i = 1; i <= 8; i++) {
+      const qId = 'q' + i;
+      const userAns = document.getElementById(qId).value.trim() || 'No answer provided.';
+      
+      const item = document.createElement('div');
+      item.className = 'review-item';
+      item.innerHTML = `
+        <p><strong>Question ${i} Your Submission:</strong></p>
+        <p style="white-space: pre-wrap; background: #ffffff; padding: 8px; border-radius: 4px; border: 1px solid #cbd5e1; margin: 4px 0 8px 0;">${userAns}</p>
+        <p><strong>Expected Solution / Key Steps:</strong> ${modelSolutions[qId]}</p>
+      `;
+      reviewContainer.appendChild(item);
     }
 
     const resultsDiv = document.getElementById('results');
-    const scoreText = document.getElementById('scoreText');
-
     resultsDiv.style.display = 'block';
-    scoreText.innerText = `You scored ${score} out of ${totalQuestions} questions correctly!`;
-    
-    // Scroll to results
     resultsDiv.scrollIntoView({ behavior: 'smooth' });
   }
 </script>
