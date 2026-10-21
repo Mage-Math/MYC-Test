@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fractions, Ratio & Direct Proportion Test</title>
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-color: #0f172a;
+      --border-color: #e2e8f0;
+      --accent-color: #f1f5f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background: var(--card-bg);
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    .meta-info {
+      font-size: 0.9rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .question-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .question-title {
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .marks {
+      color: #64748b;
+      font-size: 0.85rem;
+      font-weight: normal;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      padding: 10px 14px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .option-label:hover {
+      background-color: var(--accent-color);
+    }
+
+    .option-label input {
+      margin-right: 12px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.2s;
+    }
+
+    .submit-btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    #results {
+      margin-top: 24px;
+      padding: 20px;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      display: none;
+    }
+
+    #results h2 {
+      color: #166534;
+      margin-bottom: 8px;
+    }
+
+    .fraction {
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 0.9em;
+    }
+    .fraction > span {
+      display: block;
+      padding: 0 2px;
+    }
+    .fraction span.fdn {
+      border-top: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div>
+      <h1>Mathematics Assessment</h1>
+      <p style="color: #64748b; font-size: 0.9rem; margin-top: 4px;">Fractions, Ratios & Direct Proportion</p>
+    </div>
+    <div class="meta-info">Time Allowed: 40 Mins | Total Marks: 20</div>
+  </div>
+
+  <form id="quizForm">
+    <!-- Q1 -->
+    <div class="question-card">
+      <div class="question-title">
+        <span>1. Multiply: <sup>3</sup>/<sub>4</sub> × <sup>8</sup>/<sub>9</sub></span>
+        <span class="marks">[2 Marks]</span>
+      </div>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q1" value="A"> <sup>24</sup>/<sub>36</sub></label>
+        <label class="option-label"><input type="radio" name="q1" value="B"> <sup>2</sup>/<sub>3</sub></label>
+        <label class="option-label"><input type="radio" name="q1" value="C"> <sup>27</sup>/<sub>32</sub></label>
+        <label class="option-label"><input type="radio" name="q1" value="D"> 1 <sup>1</sup>/<sub>3</sub></label>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-card">
+      <div class="question-title">
+        <span>2. Divide: <sup>5</sup>/<sub>6</sub> ÷ <sup>2</sup>/<sub>3</sub></span>
+        <span class="marks">[2 Marks]</span>
+      </div>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q2" value="A"> 1 <sup>1</sup>/<sub>4</sub></label>
+        <label class="option-label"><input type="radio" name="q2" value="B"> <sup>5</sup>/<sub>9</sub></label>
+        <label class="option-label"><input type="radio" name="q2" value="C"> <sup>5</sup>/<sub>4</sub></label>
+        <label class="option-label"><input type="radio" name="q2" value="D"> <sup>10</sup>/<sub>18</sub></label>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card">
+      <div class="question-title">
+        <span>3. Simplify the ratio 24 : 36 to its simplest form.</span>
+        <span class="marks">[1 Mark]</span>
+      </div>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q3" value="A"> 12 : 18</label>
+        <label class="option-label"><input type="radio" name="q3" value="B"> 4 : 6</label>
+        <label class="option-label"><input type="radio" name="q3" value="C"> 2 : 3</label>
+        <label class="option-label"><input type="radio" name="q3" value="D"> 3 : 2</label>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card">
+      <div class="question-title">
+        <span>4. Share $150 in the ratio 2 : 3. What is the larger share?</span>
+        <span class="marks">[2 Marks]</span>
+      </div>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q4" value="A"> $60</label>
+        <label class="option-label"><input type="radio" name="q4" value="B"> $75</label>
+        <label class="option-label"><input type="radio" name="q4" value="C"> $90</label>
+        <label class="option-label"><input type="radio" name="q4" value="D"> $100</label>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-card">
+      <div class="question-title">
+        <span>5. Three friends share $240 in the ratio 1 : 3 : 4. How much does the middle person get?</span>
+        <span class="marks">[2 Marks]</span>
+      </div>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q5" value="A"> $30</label>
+        <label class="option-label"><input type="radio" name="q5" value="B"> $90</label>
+        <label class="option-label"><input type="radio" name="q5" value="C"> $120</label>
+        <label class="option-label"><input type="radio" name="q5" value="D"> $60</label>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-card">
+      <div class="question-title">
+        <span>6. $y$ is directly proportional to $x$. When $x = 4$, $y = 20$. Write the formula for $y$ in terms of $x$.</span>
+        <span class="marks">[2 Marks]</span>
+      </div>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q6" value="A"> y = x + 16</label>
+        <label class="option-label"><input type="radio" name="q6" value="B"> y = 5x</label>
+        <label class="option-label"><input type="radio" name="q6" value="C"> y = 4x</label>
+        <label class="option-label"><input type="radio" name="q6" value="D"> y = 20x</label>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-card">
+      <div class="question-title">
+        <span>7. Given $y = 3x$ (direct proportion), find $y$ when $x = 8$.</span>
+        <span class="marks">[1 Mark]</span>
+      </div>
+      <div class="options">
+        <label class="option-label"><input type="radio" name="q7" value="A"> 11</label>
+        <label class="option-label"><input type="radio" name="q7" value="B"> 24</label>
+        <label class="option-label"><input type="radio" name="q7" value="C"> 5</label>
+        <label class="option-label"><input type="radio" name="q7" value="D"> 18</label>
+      </div>
+    </div>
+
+    <button type="button" class="submit-btn" onclick="gradeQuiz()">Submit Assessment</button>
+  </form>
+
+  <div id="results">
+    <h2>Results</h2>
+    <p id="scoreText"></p>
+  </div>
+</div>
+
+<script>
+  function gradeQuiz() {
+    const answers = {
+      q1: 'B',
+      q2: 'A',
+      q3: 'C',
+      q4: 'C',
+      q5: 'B',
+      q6: 'B',
+      q7: 'B'
+    };
+
+    let score = 0;
+    let totalQuestions = Object.keys(answers).length;
+
+    for (let key in answers) {
+      const selected = document.querySelector(`input[name="${key}"]:checked`);
+      if (selected && selected.value === answers[key]) {
+        score++;
+      }
+    }
+
+    const resultsDiv = document.getElementById('results');
+    const scoreText = document.getElementById('scoreText');
+
+    resultsDiv.style.display = 'block';
+    scoreText.innerText = `You scored ${score} out of ${totalQuestions} questions correctly!`;
+    
+    // Scroll to results
+    resultsDiv.scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
