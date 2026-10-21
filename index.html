@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>40-Minute Math Assessment: Fractions, Ratios & Direct Proportion</title>
+  <title>MYC1 Assessment: Decoding Life - From Genes to Generations</title>
   <style>
     :root {
       --primary-color: #2563eb;
@@ -14,6 +14,7 @@
       --border-color: #cbd5e1;
       --accent-color: #f1f5f9;
       --toolbar-bg: #e2e8f0;
+      --section-header-bg: #eff6ff;
     }
 
     * {
@@ -32,7 +33,7 @@
     }
 
     .container {
-      max-width: 850px;
+      max-width: 900px;
       width: 100%;
       background: var(--card-bg);
       padding: 36px;
@@ -43,7 +44,7 @@
     .header {
       border-bottom: 2px solid var(--border-color);
       padding-bottom: 18px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -52,7 +53,7 @@
     }
 
     .header h1 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       color: var(--primary-color);
     }
 
@@ -65,31 +66,42 @@
       border-radius: 6px;
     }
 
-    .instructions {
-      background-color: #eff6ff;
+    .scenario-box {
+      background-color: var(--section-header-bg);
       border-left: 4px solid var(--primary-color);
-      padding: 12px 16px;
+      padding: 16px;
       margin-bottom: 24px;
-      font-size: 0.9rem;
-      color: #1e40af;
       border-radius: 0 6px 6px 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #1e3a8a;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 28px 0 16px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--primary-color);
     }
 
     .question-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: 8px;
-      padding: 22px;
-      margin-bottom: 24px;
+      padding: 20px;
+      margin-bottom: 20px;
     }
 
     .question-title {
       font-weight: 600;
-      font-size: 1.05rem;
-      margin-bottom: 14px;
+      font-size: 1rem;
+      margin-bottom: 12px;
       display: flex;
       justify-content: space-between;
       align-items: baseline;
+      line-height: 1.4;
     }
 
     .marks {
@@ -97,9 +109,9 @@
       font-size: 0.85rem;
       font-weight: 600;
       white-space: nowrap;
+      margin-left: 10px;
     }
 
-    /* Math Toolbar Styling */
     .math-toolbar {
       display: flex;
       flex-wrap: wrap;
@@ -132,7 +144,7 @@
 
     .answer-textarea {
       width: 100%;
-      min-height: 110px;
+      min-height: 90px;
       padding: 12px;
       border: 1px solid var(--border-color);
       border-bottom-left-radius: 6px;
@@ -159,7 +171,7 @@
       font-weight: 600;
       border-radius: 8px;
       cursor: pointer;
-      margin-top: 10px;
+      margin-top: 20px;
       transition: background-color 0.2s;
     }
 
@@ -178,12 +190,12 @@
 
     #results h2 {
       color: #166534;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .review-item {
-      margin-top: 12px;
-      padding-top: 12px;
+      margin-top: 14px;
+      padding-top: 14px;
       border-top: 1px solid #dcfce7;
       font-size: 0.95rem;
     }
@@ -198,183 +210,190 @@
 <div class="container">
   <div class="header">
     <div>
-      <h1>Mathematics Assessment</h1>
-      <p style="color: #64748b; font-size: 0.95rem; margin-top: 4px;">Fractions, Ratios, Sharing & Direct Proportion</p>
+      <h1>Decoding Life: From Genes to Generations</h1>
+      <p style="color: #64748b; font-size: 0.95rem; margin-top: 4px;">Grade: MYC1 | Integrated Science & Mathematics Assessment</p>
     </div>
-    <div class="meta-info">Time: 40 Mins | Total Marks: 25</div>
+    <div class="meta-info">Time Allowed: 40 Mins | Total Marks: 25</div>
   </div>
 
-  <div class="instructions">
-    <strong>Instructions:</strong> Show all working out clearly for full marks. Use the mathematical symbol toolbar above each text box to easily insert mathematical operators and fraction templates into your response.
+  <div class="scenario-box">
+    <strong>Scenario Context:</strong> Deep inside the Island Wildlife Conservation Research Center, Maya and Rahul work as research assistants on an environmental monitoring project[cite: 1]. Their goal is to investigate how native species adapt, how cellular instructions dictate physical traits, and how mathematical models help track conservation data[cite: 1].
   </div>
 
   <form id="quizForm">
 
+    <!-- SECTION 1: CELLULAR GENETICS & VARIATION -->
+    <div class="section-title">Section 1: Genetics, Adaptation & Biology</div>
+
     <!-- Q1 -->
     <div class="question-card">
       <div class="question-title">
-        <span>1. Work out <sup>3</sup>/<sub>4</sub> × <sup>8</sup>/<sub>9</sub>. Give your answer as a fraction in its simplest form.</span>
-        <span class="marks">[2 Marks]</span>
+        <span>1. Where are chromosomes located inside a cell, and what chemical substance are genes made of?</span>
+        <span class="marks">[1 Mark]</span>
       </div>
-      <div class="math-toolbar" data-target="q1">
+      <div class="math-toolbar">
         <button type="button" class="math-btn" onclick="insertSymbol('q1', ' × ')">×</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q1', ' ÷ ')">÷</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q1', '(a/b)')">a/b</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q1', ' = ')">=</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q1', ' : ')">:</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q1', '²')">x²</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q1', '√')">√</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q1', '∝')">∝</button>
       </div>
-      <textarea id="q1" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
+      <textarea id="q1" class="answer-textarea" placeholder="Type your answer here..."></textarea>
     </div>
 
     <!-- Q2 -->
     <div class="question-card">
       <div class="question-title">
-        <span>2. Work out 1 <sup>2</sup>/<sub>3</sub> ÷ <sup>5</sup>/<sub>6</sub>. Show your working and state your answer as a whole number or mixed fraction.</span>
-        <span class="marks">[3 Marks]</span>
+        <span>2. Explain the structural relationship between chromosomes, genes, and DNA in controlling an organism's physical characteristics.</span>
+        <span class="marks">[2 Marks]</span>
       </div>
-      <div class="math-toolbar" data-target="q2">
+      <div class="math-toolbar">
         <button type="button" class="math-btn" onclick="insertSymbol('q2', ' × ')">×</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q2', ' ÷ ')">÷</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q2', '(a/b)')">a/b</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q2', ' = ')">=</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q2', ' : ')">:</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q2', '²')">x²</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q2', '√')">√</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q2', '∝')">∝</button>
       </div>
-      <textarea id="q2" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
+      <textarea id="q2" class="answer-textarea" placeholder="Explain the relationship clearly..."></textarea>
     </div>
 
     <!-- Q3 -->
     <div class="question-card">
       <div class="question-title">
-        <span>3. Simplify the ratio 42 : 56 : 70 fully.</span>
+        <span>3. Classify each of the following traits as either <strong>Inherited (Genetic) Variation</strong> or <strong>Environmental Variation</strong>:<br>
+        a) Blood groups<br>
+        b) A scar on a fox's leg caused by sharp wire<br>
+        c) Eye color variation in mammals<br>
+        d) A plant growing smaller due to low soil nutrients or lack of sunlight</span>
         <span class="marks">[2 Marks]</span>
       </div>
-      <div class="math-toolbar" data-target="q3">
-        <button type="button" class="math-btn" onclick="insertSymbol('q3', ' × ')">×</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q3', ' ÷ ')">÷</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q3', '(a/b)')">a/b</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q3', ' = ')">=</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q3', ' : ')">:</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q3', '²')">x²</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q3', '√')">√</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q3', '∝')">∝</button>
+      <div class="math-toolbar">
+        <button type="button" class="math-btn" onclick="insertSymbol('q3', 'a) ')">a)</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q3', 'b) ')">b)</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q3', 'c) ')">c)</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q3', 'd) ')">d)</button>
       </div>
-      <textarea id="q3" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
+      <textarea id="q3" class="answer-textarea" placeholder="Classify each trait (a, b, c, d)..."></textarea>
     </div>
 
     <!-- Q4 -->
     <div class="question-card">
       <div class="question-title">
-        <span>4. Share $280 in the ratio 3 : 4 : 7. Calculate the value of each share.</span>
+        <span>4. A population of wild rabbits shifted from light-colored fur to dark-colored fur after a forest fire darkened the terrain. Describe the process of natural selection that caused this change over generations.</span>
         <span class="marks">[3 Marks]</span>
       </div>
-      <div class="math-toolbar" data-target="q4">
+      <div class="math-toolbar">
         <button type="button" class="math-btn" onclick="insertSymbol('q4', ' × ')">×</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q4', ' ÷ ')">÷</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q4', '(a/b)')">a/b</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q4', ' = ')">=</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q4', ' : ')">:</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q4', '²')">x²</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q4', '√')">√</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q4', '∝')">∝</button>
       </div>
-      <textarea id="q4" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
+      <textarea id="q4" class="answer-textarea" placeholder="Describe survival advantage, reproduction, and change in gene proportion..."></textarea>
     </div>
+
+    <!-- SECTION 2: MATHEMATICAL APPLICATIONS IN CONSERVATION -->
+    <div class="section-title">Section 2: Fractions, Ratios & Direct Proportion</div>
 
     <!-- Q5 -->
     <div class="question-card">
       <div class="question-title">
-        <span>5. Alex and Ben share money in the ratio 2 : 5. If Ben receives $45 more than Alex, how much money was shared in total?</span>
-        <span class="marks">[3 Marks]</span>
+        <span>5. (a) Maya prepares a liquid for studying plant cells using <sup>3</sup>/<sub>4</sub> of a litre. Rahul needs <sup>2</sup>/<sub>3</sub> of this amount for his experiment. How much liquid does Rahul need? Give your fraction in simplest form.<br>
+        (b) The team has <sup>7</sup>/<sub>8</sub> of a litre of reagent. Each sample tube holds <sup>1</sup>/<sub>16</sub> of a litre. How many sample containers can they fill?</span>
+        <span class="marks">[4 Marks]</span>
       </div>
-      <div class="math-toolbar" data-target="q5">
+      <div class="math-toolbar">
         <button type="button" class="math-btn" onclick="insertSymbol('q5', ' × ')">×</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q5', ' ÷ ')">÷</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q5', '(a/b)')">a/b</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q5', ' = ')">=</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q5', ' : ')">:</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q5', '²')">x²</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q5', '√')">√</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q5', '∝')">∝</button>
       </div>
-      <textarea id="q5" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
+      <textarea id="q5" class="answer-textarea" placeholder="Show working for part (a) and part (b)..."></textarea>
     </div>
 
     <!-- Q6 -->
     <div class="question-card">
       <div class="question-title">
-        <span>6. Quantity y is directly proportional to x. When x = 6, y = 42. Find the constant of proportionality k and write the formula linking y and x.</span>
+        <span>6. Researchers record 48 total animals from Species A and Species B in the ratio 5 : 3.<br>
+        a) Calculate the exact number of animals belonging to each species.<br>
+        b) How many more animals belong to Species A than Species B?</span>
         <span class="marks">[3 Marks]</span>
       </div>
-      <div class="math-toolbar" data-target="q6">
+      <div class="math-toolbar">
         <button type="button" class="math-btn" onclick="insertSymbol('q6', ' × ')">×</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q6', ' ÷ ')">÷</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q6', '(a/b)')">a/b</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q6', ' = ')">=</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q6', ' : ')">:</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q6', '²')">x²</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q6', '√')">√</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q6', '∝')">∝</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q6', ' = ')">=</button>
       </div>
-      <textarea id="q6" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
+      <textarea id="q6" class="answer-textarea" placeholder="Show calculations for total parts and individual counts..."></textarea>
     </div>
 
     <!-- Q7 -->
     <div class="question-card">
       <div class="question-title">
-        <span>7. Variable P is directly proportional to the square of r (P ∝ r²). When r = 3, P = 45. Find the value of P when r = 5.</span>
-        <span class="marks">[4 Marks]</span>
+        <span>7. Maya investigates seed germination. The number of seedlings grown (S) is directly proportional to the number of seed trays (T).<br>
+        [Trays (T): 2 -> Seedlings (S): 14 | Trays (T): 4 -> Seedlings (S): 28 | Trays (T): 6 -> Seedlings (S): 42]<br>
+        a) Calculate the constant of proportionality, k.<br>
+        b) Write a formula connecting S and T.<br>
+        c) How many seedlings will be produced using 11 trays?</span>
+        <span class="marks">[3 Marks]</span>
       </div>
-      <div class="math-toolbar" data-target="q7">
+      <div class="math-toolbar">
         <button type="button" class="math-btn" onclick="insertSymbol('q7', ' × ')">×</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q7', ' ÷ ')">÷</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q7', '(a/b)')">a/b</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q7', ' = ')">=</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q7', ' : ')">:</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q7', '²')">x²</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q7', '√')">√</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q7', '∝')">∝</button>
       </div>
-      <textarea id="q7" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
+      <textarea id="q7" class="answer-textarea" placeholder="Show working for finding k, the formula, and evaluating for 11 trays..."></textarea>
     </div>
 
     <!-- Q8 -->
     <div class="question-card">
       <div class="question-title">
-        <span>8. A recipe for 8 biscuits requires 120g of flour and 60g of butter. Calculate how much flour and butter are needed to make 20 biscuits.</span>
-        <span class="marks">[3 Marks]</span>
+        <span>8. Quick Mathematics Skills:<br>
+        a) Expand and simplify: 3(x + 4)<br>
+        b) Two angles on a straight line are 3x and 60°. Find x.<br>
+        c) Simplify the ratio 24 : 36 fully.<br>
+        d) Calculate: -12 + 7</span>
+        <span class="marks">[4 Marks]</span>
       </div>
-      <div class="math-toolbar" data-target="q8">
+      <div class="math-toolbar">
         <button type="button" class="math-btn" onclick="insertSymbol('q8', ' × ')">×</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q8', ' ÷ ')">÷</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q8', '(a/b)')">a/b</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q8', ' = ')">=</button>
         <button type="button" class="math-btn" onclick="insertSymbol('q8', ' : ')">:</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q8', '²')">x²</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q8', '√')">√</button>
-        <button type="button" class="math-btn" onclick="insertSymbol('q8', '∝')">∝</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q8', ' = ')">=</button>
       </div>
-      <textarea id="q8" class="answer-textarea" placeholder="Type your full working out and final answer here..."></textarea>
+      <textarea id="q8" class="answer-textarea" placeholder="Provide working for parts a, b, c, and d..."></textarea>
     </div>
 
-    <button type="button" class="submit-btn" onclick="submitAssessment()">Submit Assessment for Review</button>
+    <!-- SECTION 3: COMPREHENSION & GRAMMAR -->
+    <div class="section-title">Section 3: Scientific Literacy & Language</div>
+
+    <!-- Q9 -->
+    <div class="question-card">
+      <div class="question-title">
+        <span>9. Grammar & Sentence Structure:<br>
+        a) Complete using <i>must have</i> or <i>can't have</i> + past participle of <b>lose</b>:<br>
+        "Maya was certain the researcher lost the logbook in the storm. The researcher ____________ the logbook during the storm."<br>
+        b) Convert active to <strong>Present Perfect Passive</strong>:<br>
+        Active: "Geneticists have identified the unique DNA sequence of the island fox."</span>
+        <span class="marks">[3 Marks]</span>
+      </div>
+      <div class="math-toolbar">
+        <button type="button" class="math-btn" onclick="insertSymbol('q9', 'a) ')">a)</button>
+        <button type="button" class="math-btn" onclick="insertSymbol('q9', 'b) ')">b)</button>
+      </div>
+      <textarea id="q9" class="answer-textarea" placeholder="Type completed sentences..."></textarea>
+    </div>
+
+    <button type="button" class="submit-btn" onclick="submitAssessment()">Submit Assessment for Grading</button>
   </form>
 
   <div id="results">
-    <h2>Assessment Submitted!</h2>
-    <p>Your responses have been saved. Review your entries below alongside the target solutions:</p>
+    <h2>Assessment Submitted Successfully!</h2>
+    <p>Review your typed responses below alongside the solution key:</p>
 
     <div id="reviewContainer"></div>
   </div>
 </div>
 
 <script>
-  // Function to insert mathematical symbols into the targeted textarea at the cursor position
   function insertSymbol(textareaId, symbol) {
     const textarea = document.getElementById(textareaId);
     const start = textarea.selectionStart;
@@ -386,32 +405,32 @@
     textarea.focus();
   }
 
-  // Model answers for displaying after submission
   const modelSolutions = {
-    q1: "3/4 × 8/9 = (3 × 8) / (4 × 9) = 24 / 36 = 2/3",
-    q2: "1 2/3 = 5/3. (5/3) ÷ (5/6) = (5/3) × (6/5) = 30 / 15 = 2",
-    q3: "Divide each part by 14: 42 ÷ 14 = 3, 56 ÷ 14 = 4, 70 ÷ 14 = 5. Final ratio = 3 : 4 : 5",
-    q4: "Total parts = 3 + 4 + 7 = 14 parts. 1 part = $280 / 14 = $20. Shares: 3 × $20 = $60, 4 × $20 = $80, 7 × $20 = $140.",
-    q5: "Difference in parts = 5 - 2 = 3 parts. 3 parts = $45, so 1 part = $15. Total parts = 2 + 5 = 7 parts. Total money = 7 × $15 = $105.",
-    q6: "y = kx => 42 = k × 6 => k = 42 / 6 = 7. Formula: y = 7x.",
-    q7: "P = kr² => 45 = k × (3²) => 45 = 9k => k = 5. Formula: P = 5r². For r = 5: P = 5 × (5²) = 5 × 25 = 125.",
-    q8: "1 biscuit requires: 120g / 8 = 15g flour, 60g / 8 = 7.5g butter. For 20 biscuits: Flour = 20 × 15g = 300g; Butter = 20 × 7.5g = 150g."
+    q1: "Chromosomes are located inside the nucleus of a cell. Genes are made of DNA (deoxyribonucleic acid)[cite: 2, 4].",
+    q2: "Chromosomes are long structures found inside the nucleus, made up of tightly wound DNA molecules. Genes are specific segments/sections of DNA located along chromosomes that carry code for physical traits[cite: 2, 4].",
+    q3: "a) Inherited (Genetic) Variation[cite: 2]<br>b) Environmental Variation[cite: 2]<br>c) Inherited (Genetic) Variation[cite: 2]<br>d) Environmental Variation[cite: 2]",
+    q4: "Rabbits with dark fur had a camouflage advantage against the darkened terrain post-fire, making them less visible to predators. They survived higher rates and reproduced, passing down the dark fur gene to offspring. Over generations, the proportion of dark-fur genes increased in the population.",
+    q5: "a) (3/4) × (2/3) = 6/12 = 1/2 litre[cite: 3].<br>b) (7/8) ÷ (1/16) = (7/8) × (16/1) = 112 / 8 = 14 containers[cite: 3].",
+    q6: "a) Total parts = 5 + 3 = 8 parts[cite: 3]. 1 part = 48 / 8 = 6 animals[cite: 3]. Species A = 5 × 6 = 30 animals[cite: 3]; Species B = 3 × 6 = 18 animals[cite: 3].<br>b) Difference = 30 - 18 = 12 more animals in Species A[cite: 3].",
+    q7: "a) k = S / T = 14 / 2 = 7.<br>b) Formula: S = 7T.<br>c) S = 7 × 11 = 77 seedlings.",
+    q8: "a) 3(x + 4) = 3x + 12[cite: 4].<br>b) 3x + 60 = 180 => 3x = 120 => x = 40°[cite: 4].<br>c) 24 : 36 = 2 : 3[cite: 4].<br>d) -12 + 7 = -5[cite: 4].",
+    q9: "a) 'The field researcher <strong>must have lost</strong> the logbook in the severe storm.'<br>b) 'The unique DNA sequence of the island fox <strong>has been identified</strong> by geneticists.'"
   };
 
   function submitAssessment() {
     const reviewContainer = document.getElementById('reviewContainer');
     reviewContainer.innerHTML = '';
 
-    for (let i = 1; i <= 8; i++) {
+    for (let i = 1; i <= 9; i++) {
       const qId = 'q' + i;
-      const userAns = document.getElementById(qId).value.trim() || 'No answer provided.';
+      const userAns = document.getElementById(qId).value.trim() || 'No answer submitted.';
       
       const item = document.createElement('div');
       item.className = 'review-item';
       item.innerHTML = `
-        <p><strong>Question ${i} Your Submission:</strong></p>
-        <p style="white-space: pre-wrap; background: #ffffff; padding: 8px; border-radius: 4px; border: 1px solid #cbd5e1; margin: 4px 0 8px 0;">${userAns}</p>
-        <p><strong>Expected Solution / Key Steps:</strong> ${modelSolutions[qId]}</p>
+        <p><strong>Question ${i} Student Response:</strong></p>
+        <p style="white-space: pre-wrap; background: #ffffff; padding: 10px; border-radius: 4px; border: 1px solid #cbd5e1; margin: 6px 0 8px 0;">${userAns}</p>
+        <p><strong>Marking Scheme / Model Solution:</strong><br>${modelSolutions[qId]}</p>
       `;
       reviewContainer.appendChild(item);
     }
